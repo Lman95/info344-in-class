@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+    <!-- City Input -->
+    <label for="city">City:</label>
+    <select name="city" id="city" class="form-control" required>
+        <option selected="selected">Choose city...</option>
+        <option value="Seattle">Seattle</option>
+        <option value="Tacoma">Tacoma</option>
+        <option value="Portland">Portland</option>
+        <option value="New York">New york</option>
+        <option value="Bellevue">Bellevue</option>
+    </select>
+
+    <script>
+        $("#city").change(function() {
+           var x = document.getElementById('city');
+        console.log(x.options[x.selectedIndex]);
+        var cityvar = "http://localhost:8000/zips/city/" + x.options[x.selectedIndex].value;
+        cityvar = cityvar.toLowerCase();
+        //console.log(cityvar);
+        fetch(cityvar)
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(data) {
+                console.log(data)
+            })
+            .catch(function(err) {
+                console.error(err)
+            }) 
+        });
+    </script>
+</body>
+</html>

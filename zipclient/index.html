@@ -9,9 +9,11 @@
 </head>
 <body>
     <!-- City Input -->
+<p> Open your console! </p>
+
     <label for="city">City:</label>
     <select name="city" id="city" class="form-control" required>
-        <option selected="selected">Choose city...</option>
+        <option selected="selected" value="Kirkland">Choose city...</option>
         <option value="Seattle">Seattle</option>
         <option value="Tacoma">Tacoma</option>
         <option value="Portland">Portland</option>
@@ -21,7 +23,7 @@
 
     <script>
         $("#city").change(function() {
-           var x = document.getElementById('city');
+        var x = document.getElementById('city');
         console.log(x.options[x.selectedIndex]);
         var cityvar = "http://localhost:8000/zips/city/" + x.options[x.selectedIndex].value;
         cityvar = cityvar.toLowerCase();

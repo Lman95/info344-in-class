@@ -25,7 +25,7 @@
         $("#city").change(function() {
         var x = document.getElementById('city');
         console.log(x.options[x.selectedIndex]);
-        var cityvar = "http://localhost:8000/zips/city/" + x.options[x.selectedIndex].value;
+        var cityvar = "http://localhost/zips/city/" + x.options[x.selectedIndex].value;
         cityvar = cityvar.toLowerCase();
         //console.log(cityvar);
         fetch(cityvar)
